@@ -8,10 +8,6 @@ services:
 
   backend:
     build: ./backend-drf
-    nginx:
-      image: nginx:alpine
-    # ports:
-    #   - "8000:8000"
     env_file:
       - ./backend-drf/.env.docker
     depends_on:
@@ -36,24 +32,15 @@ services:
 
   nginx:
     image: nginx:alpine
-  # ports commented because nginix is used 
-  # ports:
-  #   - "80:80"
+    ports:
+      - "80:80"
     volumes:
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./backend-drf/static:/app/static:ro
+      - ./backend-drf/media:/app/media:ro
     depends_on:
       - frontend
       - backend
-    
-# This creates a named Docker volume to permanently store PostgreSQL data.
-# Without this:
-  # Database data is stored inside the container
-  # If container is deleted → data is lost
-# With this:
-  # Data is stored in a Docker-managed volume
-  # Data persists even if container stops or restarts
+
 volumes:
   postgres_data:
-
-
-  
