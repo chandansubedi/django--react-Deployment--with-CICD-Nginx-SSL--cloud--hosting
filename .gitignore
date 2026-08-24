@@ -175,6 +175,7 @@ cython_debug/
 
 backend-drf/.env.docker
 backend-drf/.env.production
+nginx/default.conf
 
 
 # my notes 
