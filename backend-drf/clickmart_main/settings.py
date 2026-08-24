@@ -174,6 +174,8 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD',default='')
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
-    'http://192.46.209.84:5173'
+    'http://192.46.209.84:5173',
+    'http://ecommerce.csubedi.com.np',
+    'https://ecommerce.csubedi.com.np',
 
 ]
