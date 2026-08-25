@@ -179,3 +179,5 @@ CORS_ALLOWED_ORIGINS = [
     'https://ecommerce.csubedi.com.np',
 
 ]
+
+CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS')
