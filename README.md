@@ -1,5 +1,5 @@
 
-# 🚀 Django Production Deployment (Step-by-Step)
+#  Django Production Deployment (Step-by-Step)
 ### Docker + PostgreSQL + GitHub Actions (CI/CD) + Linode + Nginx + Gunicorn + Custom Domain + SSL
 
 This repository demonstrates how to deploy a **Django application** from local development to **production** using:
@@ -20,7 +20,7 @@ You will go step-by-step from:
 
 ---
 
-## 🧰 Prerequisites
+##  Prerequisites
 
 Install the following on your system:
 
@@ -30,10 +30,10 @@ Install the following on your system:
 - Docker Desktop  
 - VS Code (recommended)
 
-## 📦 Step 1 — Clone the Project
+##  Step 1 — Clone the Project
 ```sh
-git clone https://github.com/dev-rathankumar/django_clickmart_
-cd django_clickmart_
+git clone https://github.com/chandansubedi/django-deploy
+
 ```
 
 ## Step 2 - Remove Git history
@@ -244,7 +244,7 @@ Run this command to Dockerize your project:
 ```sh
 docker compose up --build
 ```
-Your project is now Dockerized ✅
+Your project is now Dockerized 
 
 See the docker container health:
 ```sh
@@ -258,7 +258,7 @@ docker compose exec backend python manage.py createsuperuser
 
 ## Create Linode Server & SSH Key
 
-👉 [Create a Linode account](https://rathank.appzoneit.com/linode/)
+ (use any referal link you can ask google about this, note that without referal link you cannot login to free tier account with free credit)
 
 ##### Create SSH Key
 On your local machine:
@@ -300,7 +300,7 @@ apt install git -y
 git --version
 ```
 
-✅ Docker, Docker Compose, and Git installed successfully.
+ Docker, Docker Compose, and Git installed successfully.
 
 ## Clone Project into /opt
 Reconnect to SSH (if disconnected):
@@ -331,7 +331,7 @@ nano backend-drf/.env.docker
 Add required environment variables inside it.
 
 ## Open Firewall Ports on Linode
-⚠️ If ports are not opened, the app will run but won’t be accessible.
+ If ports are not opened, the app will run but won’t be accessible.
 
 Required Ports (Initial Setup)
 ```sh
@@ -394,7 +394,7 @@ git push origin main
 ```
 This will push the changes to GitHub.
 
-### 🎯 Goal - Whenever I push code to GitHub, my Linode server should automatically update.
+###  Goal - Whenever I push code to GitHub, my Linode server should automatically update.
 
 But first...
 
@@ -411,7 +411,7 @@ docker compose up --build -d
 ```
 
 ## Rule Before Automation
-❗Never automate something you haven’t done manually.
+Never automate something you haven’t done manually.
 
 
 ## Setup CI/CD (GitHub Actions)
@@ -467,7 +467,7 @@ Check GitHub Actions tab.
 
 Make a small frontend change and confirm auto-deploy.
 
-✅ Auto deploy successful.
+ Auto deploy successful.
 
 ## Nginx Config
 From local project, create file:
@@ -578,9 +578,9 @@ git push origin main
 ```
 
 #### Important Note
-✅ We did not change the application code.
+ We did not change the application code.
 
-✅ We only changed how Python code is executed in production.
+ We only changed how Python code is executed in production.
 
 ### Verify Gunicorn Is Running
 SSH into the Linode server:
@@ -591,6 +591,8 @@ docker compose logs backend
 ```
 
 ## Purchase a Domain
+if you have any domain already you can use this or you can mak esubdomains
+for new domain you can follow the following steps:
 
 Purchase a domain from any provider (GoDaddy, Namecheap, etc.).
 
@@ -733,10 +735,10 @@ server {
 #### Restart Nginx
 docker compose restart nginx
 
-#### Test HTTPS 🎉
+#### Test HTTPS 
 https://example.com
 
-Congratulations 🎉 You did it.
+Congratulations  You did it.
 
 # Fixing Media Files in Production (Docker + Nginx + Django)
 
